@@ -1,28 +1,25 @@
 #include <iostream> 
 #include <string>
 #include <fstream>
+#include <vector>
 using std::cout;
 using std::endl;
 
-struct location {
-  string city;
-  string state;
-  string geocode;
-};
 
-struct data {
-  int month;
-  float precip;
-  int temp;
-};
 
-void extract_values(string &, location &, data &);
+
 
 
 int main() {
 
 
+extract_values(string, location, data) ;
 
+int geocode_to_index(const string &geocode) {
+  return (geocode[0]-'A') + 26*(geocode[1]-'A') + 676*(geocode[2]-'A');
+}
+
+std::vector<int> cities = {26 * 26 * 26} ;
 
 
 
@@ -41,30 +38,3 @@ int main() {
 }
 
 
-void extract_values(string &line, location &loc, data &dat) {
-std::string line;
-while(std::getline(cin,line)) {
-  for(int i = 0; i < line.length(); i++) {
-    if(line[i] == ' ') {
-      line[i] = '_' ;
-    }
-  }
-
-  for(int i = 0; i < line.length(); i++) {
-    if(line[i] == ',') {
-      line[i] = ' ' ;
-    }
-  }
-
-  std::stringstream ss(line); 
-  ss >> dat.month;
-  ss >> loc.city;
-  ss >> loc.state;
-  ss >> loc.geocode;
-  ss >> dat.precip;
-  ss >> dat.temp;
-
-
-}
-
-}
