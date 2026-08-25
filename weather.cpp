@@ -1,38 +1,33 @@
 void extract_values(string &, location &, data &);
 
 void extract_values(string &line, location &loc, data &dat) {
-std::string line;
-while(std::getline(cin,line)) {
-  for(int i = 0; i < line.length(); i++) {
-    if(line[i] == ' ') {
-      line[i] = '_' ;
+
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == ' ') {
+            line[i] = '_';
+        }
     }
-  }
 
-  for(int i = 0; i < line.length(); i++) {
-    if(line[i] == ',') {
-      line[i] = ' ' ;
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == ',') {
+            line[i] = ' ';
+        }
     }
-  }
 
-  std::stringstream ss(line); 
-  ss >> dat.month;
-  ss >> loc.city;
-  ss >> loc.state;
-  ss >> loc.geocode;
-  ss >> dat.precip;
-  ss >> dat.temp;
+    std::stringstream ss(line);
 
- cout << line << endl;
+    ss >> dat.month;
+    ss >> loc.city;
+    ss >> loc.state;
+    ss >> loc.geocode;
+    ss >> dat.precip;
+    ss >> dat.temp;
+
+    cout << dat.month << " "
+         << loc.city << " "
+         << loc.state << " "
+         << loc.geocode << " "
+         << dat.precip << " "
+         << dat.temp << endl;
 }
 
-}
-
-void add_data(const data & , int N);
-
-void add_data(const data & , int N) { // month precip and temp (data)
-N = 0;
-while(std::getline(cin,line)) {
-    N++;
-    
-}

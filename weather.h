@@ -12,9 +12,19 @@ struct data {
 
 class summary {
   public:
-    summary();
+    summary() {
+      station = " ";
+      N = 0;
+      total_temp = 0;
+      total_precip = 0;
+      max_precip = 0;
+      max_temp = -1000;
+      min_precip = 10000;
+      min_temp = 10000;
+    }
 
-    bool empty();
+    bool empty()
+    
     void set_station(const location &);
     void add_data(const data &);
 
@@ -34,3 +44,45 @@ class summary {
     int max_temp;
     int min_temp;
 };
+
+bool empty() {
+  if(station.geocode.empty()) {
+    return false;
+        }
+
+  else{
+    return true;
+  }
+}
+
+
+void set_station(const location &) {
+  location.city = station.city;
+  location.state = station.state;
+  location.geocode = station.geocode;
+}
+
+
+void add_data(const data & d) {
+  N++ ;
+  total_precip = data.precip + total_precip;
+  total_temp = data.temp + total_temp;
+
+  if(d.temp > max_temp) {
+    d.temp = max_temp;
+  }
+
+  if(d.precip > max_precip) {
+    d.precip = max_precip;
+  }
+
+if(d.temp < min_temp) {
+    d.temp = min_temp;
+  }
+
+
+  if(d.precip < min_precip) {
+    d.precip = min_precip;
+  }
+
+}
