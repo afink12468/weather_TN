@@ -86,3 +86,28 @@ if(d.temp < min_temp) {
   }
 
 }
+
+void print_station() {
+cout << station.city  
+<< ',' 
+<< ' ' 
+<< station.state 
+<< ' ' 
+<< "(" << station.geocode << ")" << endl;
+}
+
+
+void print_data() {
+  float overall_precip = total_precip / N;
+  float overall_temp = static_cast<float>(total_temp) / N;
+
+  cout << ">>> "
+  << total_precip << " "
+  << overall_precip << " "
+  << max_precip << " "
+  << min_precip
+  << " : "
+  << overall_temp << " "
+  << max_temp << " "
+  << min_temp << endl;
+}
