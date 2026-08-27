@@ -1,13 +1,20 @@
-struct location {
+#ifndef WEATHER_H
+#define WEATHER_H
+
+#include <string>
+
+using std::string; // This file mostly just holds data to be used in functions in other files. (location and data struct + summary file) .
+
+struct location { // location struct
   string city;
   string state;
   string geocode;
 
-  bool empty();
-  bool operator==(const location &loc);
+  bool empty() const;
+  bool operator==(const location &loc) const;
 };
 
-struct data {
+struct data { // data struct
   int month;
   float precip;
   int temp;
@@ -16,10 +23,10 @@ struct data {
 class summary {
   public:
     summary();
-    summary(const location &loc);
+    summary(const location &loc); // member functions
 
     bool empty();
-    const location &get_station();
+    const location &get_station() const;
 
     void set_station(const location &);
     void add_data(const data &);
@@ -30,9 +37,9 @@ class summary {
   private:
     location station;
 
-    int N[12];
+    int N[12]; // All stats were updated in phase 3 to hold the data for 12 months.
 
-    float total_precip[12];
+    float total_precip[12]; 
     float max_precip[12];
     float min_precip[12];
 
@@ -40,3 +47,5 @@ class summary {
     int max_temp[12];
     int min_temp[12];
 };
+
+#endif
