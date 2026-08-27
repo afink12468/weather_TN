@@ -5,7 +5,7 @@
 #include <sstream>
 #include <iomanip>
 #include <cctype>
-#include "weather.h"
+#include "Support.h"
 
 using std::cout;
 using std::endl;

@@ -1,5 +1,5 @@
-#ifndef WEATHER_H
-#define WEATHER_H
+#ifndef SUPPORT_H
+#define SUPPORT_H
 
 #include <string>
 
