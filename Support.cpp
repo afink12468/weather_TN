@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
-#include "support.h"
+#include "Support.h"
 
 using std::cout;
 using std::endl;
