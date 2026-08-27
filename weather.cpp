@@ -11,7 +11,8 @@ using std::stringstream;
 using std::fixed;
 using std::setprecision;
 
-bool location::empty() const { // location function that returns true if the certain geocode is empty and false if it contains a geocode.
+ 
+ bool location::empty() const { // location function that returns true if the certain geocode is empty and false if it contains a geocode.
   if(geocode.empty()) {
     return true;
   }
@@ -34,6 +35,7 @@ bool location::operator==(const location &loc) const {
 
 
 
+ 
 summary::summary() {
   station.city = ""; // Updated constructor for the summary class. Station information is kept to a blank string.
   station.state = "";
@@ -71,6 +73,7 @@ summary::summary(const location &loc) { // Another summary constructor. The poin
 
 }
 
+
 bool summary::empty() {
   if(station.geocode.empty()) {  // functin for checking if a geocode is empty or not and returns true or false based on the results.
     return true;
@@ -80,17 +83,22 @@ bool summary::empty() {
   }
  }
 
-const location &summary::get_station() const { // get station function that returns said station
+
+ const location &summary::get_station() const { // get station function that returns said station
   return station;
 }
 
   
 
-  void summary::set_station(const location &loc) { // sets each element of the location struct (now a station variable) into a location object. (loc) .
+  
+
+void summary::set_station(const location &loc) { // sets each element of the location struct (now a station variable) into a location object. (loc) .
   station.city = loc.city;
   station.state = loc.state;
   station.geocode = loc.geocode;
 }
+
+
 
 void summary::add_data(const data &d) { // add data function that increments 'N' as a counter for the amount of months being processed. This calculates average, max, and min values for precip and temp.
   int month = d.month - 1;
@@ -133,12 +141,16 @@ void summary::print_station() {
   cout << "------------------------------------------" << endl;
 }
 
+
+
 void summary::print_data() { // print data function. This prints the actual data calculated in the add_data function. An array of each month of the year is added to precede each line. Static_cast is used when needed to make sure a number is the correct data type.
   string months[12] = {
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   };
 
+  
+  
   
   
   for(int i = 0; i < 12; i++) {
